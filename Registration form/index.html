@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Registration form</title>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <script src="angular.min.js"></script>
+        <script src="jquery.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="angular-route.js"></script>
+        <script src="function.js"></script>
+        <script>
+        $(document).ready(function(){
+            $("#clear").click(function(){
+                $("#show11").hide();
+            });
+            $("#reset").click(function(){
+                $("#show11").hide();
+            });
+        });
+        </script>
+    </head>
+    <body ng-app="myApp">
+        <div class="container-fluid" >
+            <div class="row">
+                <div class="col-5" style="border: 1px solid skyblue;">
+                    <div class="row">
+                        <div class="col-12" style="background-color: skyblue">
+                            <div class="row">
+                                <div class="col-1"></div>
+                                <div class="col-11">
+                                    <label style="color: white; font-size: 30px;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Details for Registration</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12"  ng-controller="myCtrl">
+                            <label style="font-size: 20px;"><b>Name</b></label>
+                            <input type="text" class="form-control" placeholder="Enter your full name" ng-model="username"><br>
+                            <label style="font-size: 20px;"><b>Mobile Number</b></label>
+                            <input type="number" class="form-control" placeholder="enter 10 digit mobile number" ng-model="phone"><br>
+                            <label style="font-size: 20px;"><b>Age</b></label>
+                            <input type="number" class="form-control" placeholder="enter your age" ng-model="age"><br>
+                            <label style="font-size: 20px;"><b>Gender</b></label>
+                            <select class="form-control" ng-model="gender">
+                                <option value="MALE">MALE</option>
+                                <option value="FEMALE">FEMALE</option>
+                            </select><br>
+                            <label style="font-size: 20px;"><b>marital Status</b></label>
+                            <select class="form-control" ng-model="status">
+                                <option value="Married">Married</option>
+                                <option value="UnMarried">UnMarried</option>
+                            </select><hr>
+                            <div style="text-align: center;" ng-model="status">
+                                    <button class="btn btn-secondary" ng-click="submit()">Submit</button>
+                                    <button class="btn btn-secondary" ng-click="reset()" id="reset">Reset</button>
+                            </div>
+                            <ng-view>
+
+                            </ng-view>
+                          <br>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-1">
+                </div>
+                <div class="col-6"  ng-controller="myCtr2" ng-show="show11" id="show11">
+                    <div class="row" id="printwindow" style="border: 1px solid skyblue;">
+                        <div class="col-12">
+                                <div class="row">
+                                        <div class="col-12" style="background-color: skyblue;">
+                                                <div class="row">
+                                                        <div class="col-1"></div>
+                                
+                                                        <div class="col-11">
+                                                                <label style="color: white; font-size: 30px;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Details</label>
+                                                            </div>
+                                                    </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12" >
+                                            <br><div class="row">
+                                                <div class="col-6">
+                                                    <h3>Name</h3>
+                                                </div>
+                                                <div class="col-6">
+                                                    <h3>{{name}}</h3>               
+                                                </div>
+                                            </div><br>
+                                            <div class="row">
+                                                    <div class="col-6">
+                                                        <h3>Mobile Number</h3>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <h3>{{contact}}</h3>                                                        
+                                                    </div>
+                                                </div><br>
+                                                <div class="row">
+                                                        <div class="col-6">
+                                                            <h3>Age</h3>
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <h3>{{age}}</h3>
+                                                        </div>
+                                                    </div><br>
+                                                    <div class="row">
+                                                            <div class="col-6">
+                                                                <h3>Gender</h3>
+                                                            </div>
+                                                            <div class="col-6">
+                                                                    <h3>{{gender}}</h3>
+                                                            </div>
+                                                        </div><br>
+                                                        <div class="row">
+                                                                <div class="col-6">
+                                                                    <h3>marital Status</h3>
+                                                                </div>
+                                                                <div class="col-6">
+                                                                        <h3>{{status}}</h3>
+                                                                </div>
+                                                            </div><br>             
+                                        </div>
+                                    </div>
+                        </div>
+                    </div><br>
+                    <div class="row">
+                            <div class="col-12">
+                                    <div class="row">
+                                            <div class="col-1">
+                                            </div>
+                                            <div class="col-5">
+                                                <button class="btn btn-secondary" ng-click="print('printhis')">Print data</button>
+                                            </div>
+                                            <div class="col-5">
+                                                <button  class="btn btn-secondary" ng-click="clear()" id="clear">Clear all</button>
+                                            </div>
+                                            <div class="col-1"></div>
+                                        </div>
+                            </div>
+                        </div>
+                </div> 
+            </div>
+        </div>
+    </body>
+    
+    
+</html>
